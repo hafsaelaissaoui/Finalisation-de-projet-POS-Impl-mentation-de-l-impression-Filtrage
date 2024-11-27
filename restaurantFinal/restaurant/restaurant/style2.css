@@ -1,0 +1,27 @@
+.myDIV
+{
+    display : grid;
+    grid-Template-Columns : repeat(auto-fill, minmax(200px, 1fr));
+    gap : 20px;
+    padding : 10px;
+}
+.myDIVPRODUIT {
+   border : 1px solid #ccc;
+    border-Radius : 8px;
+    padding : 10px;
+    text-Align :center;
+    background-Color :rgb(67, 75, 69);
+}
+.myIMG {
+    width : 100%;
+    border-Radius : 8px 8px 0 0;
+    cursor :pointer;
+}
+.myBTN {
+    cursor : pointer;
+    padding : 4px 8px;
+    margin : 0;
+    border : 1px solid #ccc;
+    background : #f44336;
+    color : #fff;
+}

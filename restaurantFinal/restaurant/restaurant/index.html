@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CSS Website Layout</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="style.css" rel="stylesheet" />
+    <script src="data.js"></script>
+    <link href="style2.css" rel="stylesheet" />
+  
+</head>
+<body onload=" afficherProduit('all')">
+
+    <div class="header">
+        <h1>Food</h1>
+        <p>Bienvenue dans un voyage culinaire inoubliable !</p>
+      </div>
+      
+
+    <!-- Disposition en colonnes : Facture à gauche et Produits à droite -->
+    <div class="row">
+        <!-- Facture -->
+        <div id="facture" class="colLeft">
+            <h2>Facture</h2>
+            <table id="tableFacture" border="1" style="width: 100%; text-align: center; margin-top: 20px;">
+                <thead>
+                    <tr>
+                        <th>Nom de Produit</th>
+                        <th>Qté</th>
+                        <th>Prix Unitaire</th>
+                        <th>Total (par ligne)</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Les produits seront ajoutés ici -->
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" style="text-align: right;"><strong>Total Global :</strong></td>
+                        <td id="totalFacture">0</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <!-- Boutons sous la facture -->
+            <div style="margin-top: 20px;">
+                <button id="impression-btn" onclick="window.print()">Imprimer la facture</button>
+               <button id="reset-btn" onclick="resetFacture()">nouvelle client</button>
+
+            </div>
+        </div>
+
+        <!-- Produits -->
+       <div class="colRight">
+    <h2>Produits</h2>
+    <div class="topnav">
+        <a href="#" class="menu" onclick="afficherProduit('all',this)">All</a>
+        <a href="#" class="menu" onclick="afficherProduit('drinks',this)">drinks</a>
+        <a href="#" class="menu" onclick="afficherProduit('pizza',this)">pizza</a>
+        <a href="#" class="menu" onclick="afficherProduit('tacos',this)">tacos</a>
+        <a href="#" class="menu" onclick="afficherProduit('tajine',this)">tajine</a>
+        
+        <!-- Champ de recherche avec une icône -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Rechercher..." onkeyup="searchProduit()">
+            <button type="button" class="search-icon"><i class="fa fa-search"></i></button>
+        </div>
+        
+
+    </div>
+    <div id="dvPRODUITS"></div>
+</div>
+
+<!-- Ajoutez Font Awesome pour l'icône de recherche -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+
+
+
+
+
+
+</body>
+</html>

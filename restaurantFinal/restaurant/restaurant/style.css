@@ -1,0 +1,282 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* Style the header */
+.header {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Create three equal columns that floats next to each other */
+.colLeft {
+  float: left;
+  width: 30%;
+  padding: 15px;
+}
+
+.colRight {
+  float: left;
+  width: 70%;
+  padding: 15px;
+}
+/* Clear floats after the columns */
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+/* Styles généraux de la table */
+.facture-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+  text-align: left;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+.facture-table th,
+.facture-table td {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+}
+
+.facture-table th {
+  background-color: #4caf50;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.facture-table tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.facture-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.facture-table tfoot td {
+  font-weight: bold;
+  font-size: 18px;
+  background-color: #4caf50;
+  color: white;
+}
+
+/* Bouton pour réduire la quantité */
+.facture-table button {
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: #f44336;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.facture-table button:hover {
+  background-color: #d32f2f;
+}
+
+/* Disposition des colonnes : Facture à gauche et Produits à droite */
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* La colonne de gauche (facture) sera plus petite */
+.colLeft {
+  flex: 0 0 40%; /* Facture prendra 40% de la largeur */
+  margin-right: 20px;
+}
+
+/* La colonne de droite (produits) sera plus large */
+.colRight {
+  flex: 1; /* Produits prend le reste de l'espace (60%) */
+}
+
+/* Style pour le bouton d'impression sous la facture */
+#impression-btn {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px; /* Ajout d'un espace entre la facture et le bouton */
+  width: 100%; /* Le bouton prend toute la largeur de la section de facture */
+}
+
+/* Masquer tout sauf la facture lors de l'impression */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #facture,
+  #facture * {
+    visibility: visible;
+  }
+
+  #facture {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  #impression-btn {
+    visibility: hidden;
+  }
+}
+/* Bouton "Retourner" en rouge, positionné sous le bouton "Imprimer" */
+#reset-btn {
+  padding: 10px 20px;
+  background-color: #f44336; /* Rouge */
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%; /* Le bouton prend toute la largeur de la section de facture */
+}
+
+#reset-btn:hover {
+  background-color: #d32f2f;
+}
+
+/* Ajoutez des marges et ajustez les éléments pour les rendre plus visibles */
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Facture plus petite que les produits */
+.colLeft {
+  flex: 0 0 40%; /* Facture prend 40% de la largeur */
+  margin-right: 20px;
+}
+
+.colRight {
+  flex: 1; /* Produits prend le reste de l'espace (60%) */
+}
+
+/* Largeur du bouton d'impression */
+#impression-btn {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px; /* Ajout d'un espace entre la facture et le bouton */
+  width: 100%; /* Le bouton prend toute la largeur de la section de facture */
+}
+
+.topnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px;
+}
+
+.topnav a {
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style pour le champ de recherche */
+.search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-container input {
+  padding: 8px 30px 8px 10px; /* Ajout de l'espace pour l'icône */
+  margin-left: 10px;
+  border: none;
+  border-radius: 4px;
+  width: 200px;
+}
+
+.search-container button {
+  position: absolute;
+  right: 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.search-container button i {
+  color: #888;
+}
+
+/* Ajouter une couleur de fond au champ de recherche au survol */
+.search-container input:hover {
+  background-color: #f1f1f1;
+}
+
+/* Style pour les liens actifs */
+.topnav a.active {
+  background-color: #4caf50;
+  color: white;
+}
+.selected {
+  background-color: #4caf50;
+  color: white;
+}
+.header {
+  background-color: #4caf50;
+}
+.colLeft {
+  background-color: rgb(178, 178, 17);
+}
+
